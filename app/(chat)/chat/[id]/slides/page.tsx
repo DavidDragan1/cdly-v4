@@ -47,9 +47,9 @@ export default function Flashcards() {
   return (
     <div className="flex flex-col items-center h-screen w-full">
       {paragraphs.length > 0 ? (
-        <div className="space-y-4 w-4/5 md:w-3/5 lg:w-1/3 mt-[10%]">
+        <div className="space-y-4 w-full md:w-3/5 lg:w-1/3 mt-[10%]">
           {/* card */}
-          <div className={`p-20 ${bgColor} ${textColor} rounded shadow-xl text-left`}>
+          <div className={`p-6 sm:p-20 ${bgColor} ${textColor} rounded shadow-xl text-left`}>
             <WordRevealEffect text={paragraphs[currentIndex]} highlightColor={highlightColor} speed={speed}/>
           </div>
         
