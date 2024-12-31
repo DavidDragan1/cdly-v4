@@ -1,3 +1,5 @@
+"use client";
+
 import { cn, generateUUID } from '@/lib/utils';
 import { ClockRewind, CopyIcon, PlayIcon, RedoIcon, UndoIcon } from './icons';
 import { Button } from './ui/button';
@@ -13,6 +15,7 @@ import {
   useCallback,
   useState,
 } from 'react';
+import { useRouter } from 'next/navigation'
 
 interface BlockActionsProps {
   block: UIBlock;
@@ -125,8 +128,32 @@ function PureBlockActions({
 }: BlockActionsProps) {
   const [_, copyToClipboard] = useCopyToClipboard();
 
+  const router = useRouter();
+
   return (
     <div className="flex flex-row gap-1">
+      {/* Interactive slides button */}
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="outline"
+            className="p-2 h-fit dark:hover:bg-zinc-700"
+            onClick={() => {
+              if (block.content) {
+                router.push(`chat/slides?content=${encodeURIComponent(block.content)}`);
+              } else {
+                toast.error("Content is empty, cannot start slide deck.");
+              }
+            }}
+            disabled={block.status === "streaming"}
+          >
+            Start Slide Deck
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>Interactive flashcard-style slides to boost your retention</TooltipContent>
+      </Tooltip>
+
+
       {block.kind === 'code' && (
         <RunCodeButton block={block} setConsoleOutputs={setConsoleOutputs} />
       )}

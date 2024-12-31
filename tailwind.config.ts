@@ -13,6 +13,9 @@ const config: Config = {
       mono: ['geist-mono'],
     },
     extend: {
+      fontFamily: {
+        logotype: ['Sorts Mill Goudy'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -72,6 +75,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography'), 
+    // function ({ addUtilities }) {
+    //   addUtilities(
+    //     {
+    //       '.!font-playfair': {
+    //         fontFamily: '"Playfair Display", serif !important',
+    //       },
+    //     },
+    //     ['responsive', 'hover']
+    //   );
+    // },
+  ],
 };
 export default config;
+

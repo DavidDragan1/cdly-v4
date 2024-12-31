@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
+import { Logo } from '@/components/icons';
 
 export function AppSidebar({ user }: { user: User | undefined }) {
   const router = useRouter();
@@ -27,17 +28,7 @@ export function AppSidebar({ user }: { user: User | undefined }) {
       <SidebarHeader>
         <SidebarMenu>
           <div className="flex flex-row justify-between items-center">
-            <Link
-              href="/"
-              onClick={() => {
-                setOpenMobile(false);
-              }}
-              className="flex flex-row gap-3 items-center"
-            >
-              <span className="text-lg font-semibold px-2 hover:bg-muted rounded-md cursor-pointer">
-                Chatbot
-              </span>
-            </Link>
+            <Logo/>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button

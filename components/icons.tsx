@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const BotIcon = () => {
   return (
     <svg
@@ -1119,3 +1121,13 @@ export const FullscreenIcon = ({ size = 16 }: { size?: number }) => (
     ></path>
   </svg>
 );
+
+export const Logo = () => {
+  return (
+    <Link href="/">
+      <span className="bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-600 bg-clip-text text-transparent text-2xl font-semibold px-2 hover:from-pink-600 hover:to-purple-400 rounded-md cursor-pointer !font-logotype">
+        Condensely.ai
+      </span>
+    </Link>
+  );
+};

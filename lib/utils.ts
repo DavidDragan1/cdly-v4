@@ -222,3 +222,10 @@ export function getMessageIdFromAnnotations(message: Message) {
   // @ts-expect-error messageIdFromServer is not defined in MessageAnnotation
   return annotation.messageIdFromServer;
 }
+
+// segment document by paragraphs
+export function segmentDocument(content: string): string[] {
+    return content.split(/\n\n+/).filter((paragraph) => paragraph.trim() !== "");
+}
+
+
